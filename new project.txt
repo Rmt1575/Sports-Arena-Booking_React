@@ -1,0 +1,101 @@
+ADMIN 
+END USER 
+
+[NAVBAR] 
+Admin --> user-list, add, remove, block... 
+Arena Manager --> 
+Trainer --> 
+User --> 
+
+d: project : 
+	mern 
+		--> frontend 
+			--> learning26 --> X 
+			--> cmd -- create other folder for project in frontend folder 
+- npm create vite 
+- project name 
+- select react 
+- javascript 
+
+- cd project name 
+- npm install 
+- code . 
+
+required package install : 
+- npm i react-router-dom axios react-hook-form 
+
+#tailwind css 4th version 
+- npm install tailwindcss @tailwindcss/vite 
+config 
+--> vite.config.js --> plugins : [] 
+	- add tailwindcss() 
+
+--> index.css 
+- @import "tailwindcss"; 
+- in App.jsx --> comment app.css import 
+--> main.jsx 
+- remove index.css import 
+- import './index.css' 
+
+Folder structure 
+	src : 
+		components --> reusable 		(folder) 
+		hooks 							(folder) 
+		pages --> static 				(folder) 
+		router 							(folder) 
+			AppRouter.jsx 				(file) 
+
+
+main.jsx 
+	--> <App /> 
+
+App.jsx 
+--> <AppRouter /> 
+
+AppRouter.jsx 
+----------------
+ex., {path:"/xyz",element={<ComponentName />}} --> for routing 
+
+const router = ()=>{[
+	{path:"/login",element:<Login />},
+	{path:"/signin",element:<SignIn />},
+	{
+		path:"/user,element:<UserNavbar />,
+		childern : [
+			{path:"carlist",element:<CarList />},
+			{}
+		]
+	},
+	{
+		path:"/admin,element:<AdminSidebar />,
+		childern : [
+			{path:"arena",element:<ArenaList />},
+			{}
+		]
+	},
+]}
+
+
+create 2 seperate folder : 
+components 
+	user 
+		UserNavbar.jsx 
+			--> for routing in AppRouter.jsx 
+				{
+					path : "/user", element : <UserNavbar />,
+					childern :[
+						{path : "carlist, element : <CarList />},
+					]
+				} 
+	admin 
+		AdminSidebar.jsx 
+			--> for routing in AppRouter.jsx
+				{path : "/admin", element : <AdminSidebar />} 
+
+outlet : to load child components 
+--------- 
+AppRouter.jsx 
+	--> <Outlet />  -- inside parent component's main context 
+
+
+
