@@ -6,9 +6,11 @@ import { AdminSidebar } from "../components/admin/AdminSidebar";
 import { AllUsersList } from "../components/admin/AllUsersList";
 import { DashBoard } from "../components/user/DashBoard";
 import { ArenaList } from "../components/user/ArenaList";
+import { UseEffectDemo } from "../components/user/UseEffectDemo";
+import { GetApiDemo } from "../components/user/GetApiDemo";
 
 const router = createBrowserRouter([
-  { path: "/login", element: <Login /> },
+  { path: "/", element: <Login /> },
   { path: "/signup", element: <SignUp /> },
   {
     path: "/admin",
@@ -21,6 +23,8 @@ const router = createBrowserRouter([
     children: [
       { path: "dashboard", element: <DashBoard /> },
       { path: "arenalist", element: <ArenaList /> },
+      { path: "useeffectdemo", element: <UseEffectDemo /> },
+      { path: "getapidemo", element: <GetApiDemo /> },
     ],
   },
 ]);

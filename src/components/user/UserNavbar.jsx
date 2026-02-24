@@ -46,6 +46,15 @@ export const UserNavbar = () => {
             My Bookings
           </NavLink>
 
+          <NavLink
+            to="/user/getapidemo"
+            className={({ isActive }) =>
+              `${linkClass} ${isActive ? activeClass : "hover:bg-gray-700"}`
+            }
+          >
+            Get API
+          </NavLink>
+
           <button
             onClick={handleLogout}
             className="bg-red-500 px-4 py-2 rounded-lg hover:bg-red-600 transition"

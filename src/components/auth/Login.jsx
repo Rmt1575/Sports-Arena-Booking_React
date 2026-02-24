@@ -1,39 +1,37 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 export const Login = () => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+    mode: "onSubmit", // validate when user clicks Login
   });
+  // navigate hook for redirection after login
+  const navigate = useNavigate();
 
-  const [errors, setErrors] = useState({});
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const validate = () => {
-    let newErrors = {};
-
-    if (!formData.email) newErrors.email = "Email is required";
-    if (!formData.password) newErrors.password = "Password is required";
-
-    return newErrors;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const validationErrors = validate();
-    setErrors(validationErrors);
-
-    if (Object.keys(validationErrors).length === 0) {
-      console.log("Login Data:", formData);
-      alert("Login Successful 🚀");
+  // submit handler
+  const submitHandler = async (data) => {
+    try {
+      const response = await axios.post("https://node5.onrender.com/user/login",data)
+      console.log("Response:", response);
+      console.log("Login Response:", response.data);
+      if(response.status == 200) {
+        toast.success("Login Successful 🚀")
+        navigate("/user") // redirect to user after successful login
+      }
+    } catch (error) {
+      console.log("Login Error:", error);
+      toast.error("Login Failed!!! Please check your credentials...")
     }
   };
 
@@ -57,19 +55,25 @@ export const Login = () => {
             Welcome back! Please login to continue.
           </p>
 
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit(submitHandler)} className="space-y-5">
             {/* EMAIL */}
             <div>
               <input
                 type="email"
-                name="email"
                 placeholder="Enter your email"
-                value={formData.email}
-                onChange={handleChange}
                 className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: "Enter a valid email",
+                  },
+                })}
               />
               {errors.email && (
-                <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.email.message}
+                </p>
               )}
             </div>
 
@@ -77,14 +81,17 @@ export const Login = () => {
             <div>
               <input
                 type="password"
-                name="password"
                 placeholder="Enter your password"
-                value={formData.password}
-                onChange={handleChange}
                 className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                {...register("password", {
+                  required: "Password is required",
+                  minLength: { value: 6, message: "Minimum 6 characters" },
+                })}
               />
               {errors.password && (
-                <p className="text-red-500 text-sm mt-1">{errors.password}</p>
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.password.message}
+                </p>
               )}
             </div>
 

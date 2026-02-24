@@ -1,0 +1,92 @@
+Date : 23/02/2026 
+================= 
+
+https://www.npmjs.com/package/react-toastify
+npm i react-toastify
+https://fkhadra.github.io/react-toastify/introduction/
+
+add ToastContainer in app.jsx
+
+component lifecycle hook
+function automatically call when component load
+
+
+useEffect() :
+--------------
+to handle side effect in react js we will use useEffect
+
+chat[] array -> 10 msg
+componsnt --> load chat load
+
+new msg --> add in array --> useEffect call again
+
+useEffect(()=>{},[chat])
+
+
+integrate post api --> login form
+apply tosters
+useEffect : demo
+apiDemo --> get --> table format -->tailwindcss --> useEffect
+
+
+
+Date : 24/02/2026 
+================= 
+
+MongoDB setup : 
+---------------- 
+- mongosh 
+- show dbs 
+
+create collection 
+- db.createCollection("") 
+
+- insert () 
+- insertMany () 
+- find () 
+
+- find(name : {$in : []})    --> $in -return array 
+- object --> find({"desc.storage" : "512GB"}) 
+
+- show collection 
+
+update : 
+--------- 
+
+- update({name : "samir"}, {$set : {age : 24}}) 
+- update({}, {$set : {status : "True"}}) -- update for all 
+
+remove : (without using remove or delete in-built feature) 
+--------- 
+update({}, {$unset : {status : ""}}) 
+
+
+
+Date : 25/02/2026 
+================= 
+
+
+
+
+
+
+
+
+Date : 26/02/2026 
+================= 
+
+
+
+
+
+
+
+
+
+Date : 27/02/2026 
+================= 
+
+
+
+
+
