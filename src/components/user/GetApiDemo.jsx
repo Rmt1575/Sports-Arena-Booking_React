@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 export const GetApiDemo = () => {
   // State to hold the list of users
@@ -17,6 +18,18 @@ export const GetApiDemo = () => {
     getUsers();
   }, []);
 
+  // delete user function
+  const deleteUser = async (id) => {
+    const res = await axios.delete(
+      `https://node5.onrender.com/user/user/${id}`,
+    );
+    console.log("delete response", res);
+    if (res.status == 204) {
+      toast.success("User deleted successfully");
+      getUsers();
+    }
+  };
+
   return (
     <div className="p-6 bg-slate-100 min-h-screen">
       <h1
@@ -33,6 +46,7 @@ export const GetApiDemo = () => {
               <th className="px-6 py-3 text-sm font-semibold">Name</th>
               <th className="px-6 py-3 text-sm font-semibold">Email</th>
               <th className="px-6 py-3 text-sm font-semibold">Age</th>
+              <th className="px-6 py-3 text-sm font-semibold">ACTION</th>
             </tr>
           </thead>
 
@@ -43,6 +57,16 @@ export const GetApiDemo = () => {
                   <td className="px-6 py-3">{user.name}</td>
                   <td className="px-6 py-3">{user.email}</td>
                   <td className="px-6 py-3">{user.age}</td>
+                  <td className="px-6 py-3">
+                    <button
+                      className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition"
+                      onClick={() => {
+                        deleteUser(user._id);
+                      }}
+                    >
+                      DELETE
+                    </button>
+                  </td>
                 </tr>
               );
             })}

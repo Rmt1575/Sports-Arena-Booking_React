@@ -1,32 +1,32 @@
 Date : 23/02/2026 
 ================= 
 
-https://www.npmjs.com/package/react-toastify
-npm i react-toastify
-https://fkhadra.github.io/react-toastify/introduction/
+https://www.npmjs.com/package/react-toastify 
+npm i react-toastify 
+https://fkhadra.github.io/react-toastify/introduction/ 
 
-add ToastContainer in app.jsx
+add ToastContainer in app.jsx 
 
-component lifecycle hook
-function automatically call when component load
+component lifecycle hook 
+function automatically call when component load 
 
+useEffect() : 
+-------------- 
+to handle side effect in react js we will use useEffect 
 
-useEffect() :
---------------
-to handle side effect in react js we will use useEffect
+chat[] array -> 10 msg 
+component --> load chat load 
 
-chat[] array -> 10 msg
-componsnt --> load chat load
+new msg --> add in array --> useEffect call again 
 
-new msg --> add in array --> useEffect call again
+useEffect(()=>{},[chat]) 
 
-useEffect(()=>{},[chat])
+component load --> useEffect automatically called 
 
-
-integrate post api --> login form
-apply tosters
-useEffect : demo
-apiDemo --> get --> table format -->tailwindcss --> useEffect
+integrate post api --> login form 
+apply tosters 
+useEffect : demo 
+apiDemo --> get --> table format -->tailwindcss --> useEffect 
 
 
 
@@ -65,10 +65,38 @@ update({}, {$unset : {status : ""}})
 Date : 25/02/2026 
 ================= 
 
+Delete API : 
+------------- 
+
+axios.delete(`api-url${id}`) 
+if(response status == ex., 204) { 
+    toast.success("") 
+    // to update at a realtime without refreshing -- call again api 
+    getUsers() 
+} 
 
 
+Node Project : 
+=============== 
 
+MERN 
+    - frontend 
+    - backend 
+cmd on MERN/backend> 
+- npm init --y 
 
+new file -- app.js 
+- node app.js // run this file 
+
+JavaScript 
+module : ec6 --> import 
+         ec5 --> required 
+
+to export any --> module.exports = { any, any} 
+// export in only one time -- if multiple export then last export is considered 
+
+to import that --> const any = require("file path") 
+    - only one time type require("file path") 
 
 
 
