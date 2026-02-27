@@ -1,0 +1,108 @@
+src/
+├─ assets/
+│  ├─ images/
+│  └─ icons/
+│
+├─ components/
+│  ├─ common/                      # reusable UI
+│  │  ├─ Button.jsx
+│  │  ├─ Input.jsx
+│  │  ├─ Loader.jsx
+│  │  ├─ Modal.jsx
+│  │  └─ StatusBadge.jsx
+│  │
+│  ├─ auth/                        # auth UI parts (not pages)
+│  │  ├─ LoginForm.jsx
+│  │  └─ SignupForm.jsx
+│  │
+│  ├─ admin/
+│  │  ├─ AdminSidebar.jsx
+│  │  ├─ AdminTopbar.jsx
+│  │  ├─ ManageUsersTable.jsx
+│  │  ├─ ManageArenasTable.jsx
+│  │  └─ PricingPanel.jsx
+│  │
+│  ├─ manager/
+│  │  ├─ ManagerNavbar.jsx
+│  │  ├─ ApproveBookingsTable.jsx
+│  │  ├─ ScheduleManager.jsx
+│  │  ├─ AssignSlotsToCoach.jsx
+│  │  └─ MaintenancePanel.jsx
+│  │
+│  ├─ coach/
+│  │  ├─ CoachNavbar.jsx
+│  │  ├─ BookingRequests.jsx        # accept/reject
+│  │  ├─ MySlots.jsx
+│  │  └─ SalaryPayments.jsx
+│  │
+│  └─ player/
+│     ├─ PlayerNavbar.jsx
+│     ├─ SportSelector.jsx
+│     ├─ ArenaSearch.jsx
+│     ├─ SlotPicker.jsx
+│     ├─ ApprovalWaitingCard.jsx
+│     ├─ PaymentPanel.jsx
+│     └─ BookingDetails.jsx
+│
+├─ layouts/                         # role-based layout wrapper
+│  ├─ AdminLayout.jsx               # sidebar + outlet
+│  ├─ ManagerLayout.jsx             # navbar + outlet
+│  ├─ CoachLayout.jsx               # navbar + outlet
+│  ├─ PlayerLayout.jsx              # navbar + outlet
+│  └─ AuthLayout.jsx                # clean layout for login/signup
+│
+├─ pages/
+│  ├─ auth/
+│  │  ├─ Login.jsx
+│  │  └─ SignUp.jsx
+│  │
+│  ├─ admin/
+│  │  ├─ Dashboard.jsx
+│  │  ├─ ManageUsers.jsx
+│  │  ├─ ManageArenas.jsx
+│  │  └─ Pricing.jsx
+│  │
+│  ├─ manager/
+│  │  ├─ Dashboard.jsx
+│  │  ├─ ApproveBookings.jsx
+│  │  ├─ Schedules.jsx
+│  │  └─ Maintenance.jsx
+│  │
+│  ├─ coach/
+│  │  ├─ Dashboard.jsx
+│  │  ├─ Requests.jsx
+│  │  └─ Salary.jsx
+│  │
+│  └─ player/
+│     ├─ Dashboard.jsx
+│     ├─ BrowseSports.jsx
+│     ├─ BrowseArenas.jsx
+│     ├─ SelectSlot.jsx
+│     ├─ ApprovalStatus.jsx
+│     ├─ Payment.jsx
+│     └─ BookingSummary.jsx
+│
+├─ router/
+│  ├─ AppRouter.jsx                 # all routes
+│  ├─ ProtectedRoute.jsx            # logged-in check
+│  └─ RoleRoute.jsx                 # role check (admin/manager/coach/player)
+│
+├─ context/
+│  └─ AuthContext.jsx               # stores login role + user data (frontend only)
+│
+├─ data/
+│  ├─ dummyUsers.js                 # for login role testing
+│  ├─ arenas.js
+│  ├─ slots.js
+│  ├─ bookings.js
+│  └─ payments.js
+│
+├─ utils/
+│  ├─ constants.js                  # roles, statuses
+│  └─ helpers.js                    # formatting, small helpers
+│
+├─ styles/
+│  └─ index.css                     # tailwind v4 + global css
+│
+├─ App.jsx
+└─ main.jsx

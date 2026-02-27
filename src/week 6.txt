@@ -28,6 +28,21 @@ apply tosters
 useEffect : demo 
 apiDemo --> get --> table format -->tailwindcss --> useEffect 
 
+[{(------> ignore this on report 
+|   from youyube(ignore this on report from "[{(" -to-> ")}]" )
+|
+|   useEffect(()=>{
+|       // fetch data
+|   },[//dependancies ex., UserId]) 
+|
+|   setInterval(any, 1000 /*time*/ ) //fetch data every 1 second
+|
+|   cleanup function --> when component is about to be removed from the DOM(screen) 
+|   - prevent memory lost 
+|   - function that runs when the component is about to be removed or before the effect runs again 
+|    
+)}]------> ignore this on report 
+
 
 
 Date : 24/02/2026 
